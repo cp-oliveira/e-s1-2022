@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&family=Fira+Sans:wght@600&display=swap');
+
+html {
+    font-family: 'Fira Sans', sans-serif;
+    background: rgb(234, 234, 234);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.card {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    max-width: 500px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    &__thumbnail {
+        width: 80%;
+        background-image: url('https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=rb-0.3.5&s=3a2fc3039516555bbb2e9cd2967bd321&auto=format&fit=crop&w=1537&q=80');
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        box-sizing: border-box;
+        padding: 16px;
+        .divider {
+            display: block;
+            width: 0px;
+            height: 100%;
+            border: 1px dashed rgb(234, 234, 234);
+            position: absolute;
+            top: 0;
+            left: 24px;
+            &::before {
+                width: 12px;
+                height: 12px;
+                background: rgb(234, 234, 234);
+                display: block;
+                position: absolute;
+                top: -6px;
+                content: '';
+                left: -6px;
+                border-radius: 100%;
+            }
+            &::after {
+                width: 12px;
+                height: 12px;
+                background: white;
+                display: block;
+                position: absolute;
+                bottom: -6px;
+                content: '';
+                left: -6px;
+                border-radius: 100%;
+            }
+        }
+        .card__title {
+            font-size: 2rem;
+            color: white;
+            margin: 0;
+            position: relative;
+            z-index: 99;
+        }
+    }
+    &__content {
+        position: relative;
+        width: 20%;
+        box-sizing: border-box;
+        padding: 12px 0;
+        p {
+           writing-mode: vertical-lr;
+           font-family: 'EB Garamond', serif;
+           color: rgba(200,200,200,1);
+           position: relative;
+           z-index: 99;
+        }
+        .card__content__stamp {
+            width: 50px;
+            height: 50px;
+            background: gainsboro;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            transition: all .4s;
+           
+            &--blue {
+                background: blue;
+            }
+        }
+    }
+}
+
+
+.card {
+    &:hover {
+        cursor: pointer;
+        .card__content__stamp {
+            transform: scale(10);
+            opacity: .8;
+        }
+    }
+}
